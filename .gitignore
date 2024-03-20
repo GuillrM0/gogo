@@ -1,18 +1,26 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+function fibonacci(n) {
+  if (n === 0) {
+    // Si n es 0, devolvemos un arreglo vacío
+    return [];
+  } else if (n === 1) {
+    // Si n es 1, devolvemos un arreglo con el primer número de la serie
+    return [0];
+  } else {
+    // Creamos un arreglo para almacenar la serie de Fibonacci,
+    // inicializándolo con los primeros dos números.
+    let serie = [0, 1];
+    
+    // Empezamos a calcular desde el tercer elemento (índice 2)
+    // hasta el elemento n.
+    for (let i = 2; i < n; i++) {
+      // El nuevo número es la suma de los dos anteriores.
+      serie[i] = serie[i - 1] + serie[i - 2];
+    }
+    
+    // Devolvemos la serie de Fibonacci hasta n números.
+    return serie;
+  }
+}
 
-# Other files and folders
-.settings/
-
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
-
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+// Ejemplo de uso: generar los primeros 10 números de Fibonacci.
+console.log(fibonacci(10));
